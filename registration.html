@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Shop Online Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden; /* To contain floated elements */
+        }
+        
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+            float: left; /* Float fieldsets to enable vertical alignment */
+            width: calc(50% - 5px); /* Make each fieldset take up half of the form width with a 5px gap */
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+        
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input,
+        textarea {
+            width: calc(100% - 10px); /* Subtract padding and border width from 100% */
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+
+        .inline {
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+        }
+        
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            float: right;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        /* Add vertical line between fieldsets */
+        fieldset + fieldset {
+            border-left: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Vegetable Shop Online Order Form</h2>
+<form action="submit_order.php" method="post">
+    <fieldset>
+        <legend>Customer Information:</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Delivery Address:</legend>
+        <label for="address">Street Address:</label>
+        <input type="text" id="address" name="address" required>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <label for="state">State/Province:</label>
+        <input type="text" id="state" name="state" required>
+        <label for="zip">Zip/Postal Code:</label>
+        <input type="text" id="zip" name="zip" required>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+    </fieldset>
+    
+    <fieldset class="inline">
+        <legend>Vegetable Selection:</legend>
+        <input type="checkbox" id="tomatoes" name="vegetables[]" value="Tomatoes" class="inline">
+        <label for="tomatoes" class="inline">Tomatoes</label>
+        <input type="number" id="tomatoes_qty" name="quantities[]" placeholder="Quantity" class="inline"><br>
+        <!-- Repeat similar lines for other vegetables -->
+    </fieldset>
+    
+    <fieldset class="inline">
+        <!-- Repeat similar lines for other vegetables -->
+    </fieldset>
+    
+    <fieldset style="clear: both;"> <!-- Add a clearfix to ensure proper layout -->
+        <!-- This empty fieldset creates a gap between the Vegetable Selection and Preferred Delivery Date and Time sections -->
+    </fieldset>
+    
+    <fieldset>
+        <legend>Preferred Delivery Date and Time:</legend>
+        <label for="delivery_date">Date:</label>
+        <input type="date" id="delivery_date" name="delivery_date">
+        <label for="delivery_time">Time:</label>
+        <input type="time" id="delivery_time" name="delivery_time">
+    </fieldset>
+    
+    <fieldset>
+        <legend>Payment Information:</legend>
+        <label for="card_number">Credit Card Number:</label>
+        <input type="text" id="card_number" name="card_number" required>
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+    </fieldset>
+    
+    <button type="submit">Submit Order</button>
+</form>
+
+</body>
+</html>
